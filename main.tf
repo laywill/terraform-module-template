@@ -13,6 +13,6 @@ resource "null_resource" "placeholder" {
 
   provisioner "remote-exec" {
     inline = [
-      "echo hello world"]
+    "echo hello world"]
   }
 }

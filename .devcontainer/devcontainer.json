@@ -5,10 +5,19 @@
     "ghcr.io/devcontainers/features/terraform:1": {
       "version": "latest"
     },
-    "ghcr.io/devcontainers/features/azure-cli:1": {
-      "version": "latest"
-    },
-    "ghcr.io/devcontainers/features/aws-cli:1": {
+    // "ghcr.io/devcontainers/features/azure-cli:1": {
+    //   "version": "latest"
+    // },
+    // "ghcr.io/devcontainers/features/aws-cli:1": {
+    //   "version": "latest"
+    // },
+    // "ghcr.io/dhoeric/features/google-cloud-cli:1": {
+    //   "version": "latest"
+    // },
+    // "ghcr.io/devcontainers-extra/features/digitalocean-cli:1": {
+    //   "version": "latest"
+    // },
+    "ghcr.io/devcontainers/features/go:1": {
       "version": "latest"
     }
   },
@@ -16,20 +25,21 @@
     "vscode": {
       "extensions": [
         "hashicorp.terraform",
-        "ms-vscode-remote.remote-containers"
+        "ms-vscode-remote.remote-containers",
+        "redhat.vscode-yaml"
       ],
       "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
       }
     }
   },
-  "postCreateCommand": "terraform -install-autocomplete",
-  "remoteUser": "vscode",
-  "mounts": [
-    "type=bind,source=/home/${localEnv:USER}/.ssh,target=/root/.ssh,readonly"
-  ],
+  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && wget https://bootstrap.pypa.io/get-pip.py && chmod +x ./get-pip.py && python3 ./get-pip.py && rm -f ./get-pip.py && pip install --user -U pre-commit && pre-commit install && terraform -install-autocomplete",
+  // "remoteUser": "vscode",
+  // "mounts": [
+  //   "type=bind,source=/home/${localEnv:USER}/.ssh,target=/root/.ssh,readonly"
+  // ],
   // Good practice to ensure we only mount this folder, not parent git repos to.
   // Can be useful if a submodule in a bigger repo, for example.
-  "workspaceFolder": "/workspace",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind"
+  // "workspaceFolder": "/workspace",
+  // "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind"
 }

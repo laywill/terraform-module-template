@@ -1,24 +1,24 @@
 {
-    "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
-    "allowCompoundWords": true,
-    "dictionaries": [
-        "bash",
-        "companies",
-        "en-gb",
-        "filetypes",
-        "go",
-        "misc",
-        "powershell",
-        "python",
-        "softwareTerms",
-        "Terraform"
-    ],
-    "language": "en-GB",
-    "version": "0.2",
-    "words": [
-        "devcontainer",
-        "devcontainers",
-        "refs",
-        "vars"
-    ]
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "allowCompoundWords": true,
+  "dictionaries": [
+    "bash",
+    "companies",
+    "en-gb",
+    "filetypes",
+    "go",
+    "misc",
+    "powershell",
+    "python",
+    "softwareTerms",
+    "Terraform"
+  ],
+  "language": "en-GB",
+  "version": "0.2",
+  "words": [
+    "devcontainer",
+    "devcontainers",
+    "refs",
+    "vars"
+  ]
 }
