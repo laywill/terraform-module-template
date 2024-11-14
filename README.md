@@ -12,7 +12,7 @@ This template can be used to create a terraform template, with CI/CD, linting et
 
 ## Authors
 
-- [@octokatherine](https://www.github.com/octokatherine)
+- [@laywill](https://www.github.com/laywill)
 
 ## Contributing
 

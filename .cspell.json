@@ -1,19 +1,24 @@
 {
     "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
-    "version": "0.2",
-    "language": "en-GB",
+    "allowCompoundWords": true,
     "dictionaries": [
-        "en-gb",
-        "companies",
-        "softwareTerms",
-        "misc",
         "bash",
+        "companies",
+        "en-gb",
         "filetypes",
+        "go",
+        "misc",
+        "powershell",
+        "python",
+        "softwareTerms",
         "Terraform"
     ],
+    "language": "en-GB",
+    "version": "0.2",
     "words": [
         "devcontainer",
-        "devcontainers"
-    ],
-    "allowCompoundWords": true
+        "devcontainers",
+        "refs",
+        "vars"
+    ]
 }
