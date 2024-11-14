@@ -1,14 +1,30 @@
-  name: Terratest
-  on:
-    pull_request:
-      branches: [ 'main' ]
-      types: [opened, synchronize, reopened, closed, labeled, unlabeled]
+# Terratest GitHub Action configuration file
+# More info at https://github.com/cloudposse/github-action-terratest
+---
+name: Terratest
+  
+# Trigger mega-linter at every push.
+# Action will also be visible from Pull Requests to main.
+# Comment this line to trigger action only on pull-requests
+  # (not recommended if you don't pay for GH Actions)
+  push:
 
-  jobs:
-    context:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Run Terratest
-          uses: cloudposse/github-action-terratest@main
-          with:
-            sourceDir: test/src
+    pull_request:
+      branches:
+        - main
+        - master
+      # Uncomment this line to trigger action only on certain Pull Request events
+      # types: [opened, synchronize, reopened, closed, labeled, unlabeled]
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Terratest
+        uses: cloudposse/github-action-terratest@main
+        with:
+          sourceDir: test/
