@@ -2,17 +2,21 @@
   "name": "Terraform Development Container",
   "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-    "ghcr.io/devcontainers/features/terraform:1": {}
+    "ghcr.io/devcontainers/features/terraform:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/azure-cli:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/aws-cli:1": {
+      "version": "latest"
+    }
   },
   "customizations": {
     "vscode": {
       "extensions": [
         "hashicorp.terraform",
-        "ms-azuretools.vscode-docker",
-        "eamodio.gitlens",
-        "ms-vscode-remote.remote-containers",
-        "mhutchie.git-graph"
+        "ms-vscode-remote.remote-containers"
       ],
       "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
@@ -22,10 +26,10 @@
   "postCreateCommand": "terraform -install-autocomplete",
   "remoteUser": "vscode",
   "mounts": [
-    "source=${localWorkspaceFolder}/.terraform,target=/workspaces/.terraform,type=bind,consistency=cached"
+    "type=bind,source=/home/${localEnv:USER}/.ssh,target=/root/.ssh,readonly"
   ],
-  "forwardPorts": [],
-  "remoteEnv": {},
-  "workspaceFolder": "/workspaces/terraform-project",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/terraform-project,type=bind,consistency=cached"
+  // Good practice to ensure we only mount this folder, not parent git repos to.
+  // Can be useful if a submodule in a bigger repo, for example.
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind"
 }
