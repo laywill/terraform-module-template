@@ -2,26 +2,27 @@
 # More info at https://github.com/cloudposse/github-action-terratest
 ---
 name: Terratest
-  
-# Trigger mega-linter at every push.
+
+# Trigger Terratest at every push.
 # Action will also be visible from Pull Requests to main.
-# Comment this line to trigger action only on pull-requests
+on: # yamllint disable-line rule:truthy - false positive
+  # Comment this line to trigger action only on pull-requests
   # (not recommended if you don't pay for GH Actions)
   push:
 
-    pull_request:
-      branches:
-        - main
-        - master
-      # Uncomment this line to trigger action only on certain Pull Request events
-      # types: [opened, synchronize, reopened, closed, labeled, unlabeled]
+  pull_request:
+    branches:
+      - main
+      - master
+    # Uncomment this line to trigger action only on certain Pull Request events
+    # types: [opened, synchronize, reopened, closed, labeled, unlabeled]
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
   cancel-in-progress: true
 
 jobs:
-  context:
+  terratest:
 
     # Give the default GITHUB_TOKEN write permission to commit and push, comment
     # issues & post new PR; remove the ones you do not need
