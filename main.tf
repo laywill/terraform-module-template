@@ -1,18 +1,17 @@
 # ---------------------------------------------------------------------------------------------------------------------
-# DEPLOY A <THING> IN <Provider>
-# This module deploys <Thing> in <Platform>.
-# Short description of what this module will deploy, and any key variables that affect deployment.
+# BASIC TERRAFORM EXAMPLE
+# This module contains the bare essentails for a Terraform module.
+#
+# You should update this with a short description of what this module will deploy
+# and any key variables that affect deployment.
 # ---------------------------------------------------------------------------------------------------------------------
 
-# The primary use-case for the null resource is as a do-nothing container
-# for arbitrary actions taken by a provisioner.
-resource "null_resource" "placeholder" {
-  # Changes to any instance of the cluster requires re-provisioning
-  triggers = {
-  }
+resource "local_file" "example1" {
+  content  = "${var.example1} + ${var.example2}"
+  filename = "example1.txt"
+}
 
-  provisioner "remote-exec" {
-    inline = [
-    "echo hello world"]
-  }
+resource "local_file" "example2" {
+  content  = var.example2
+  filename = "example2.txt"
 }

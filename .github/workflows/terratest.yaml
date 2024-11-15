@@ -21,14 +21,11 @@ concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   terratest:
-
-    # Give the default GITHUB_TOKEN write permission to commit and push, comment
-    # issues & post new PR; remove the ones you do not need
-    permissions:
-      contents: read
-
     runs-on: ubuntu-latest
     steps:
       - name: Run Terratest
