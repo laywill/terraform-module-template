@@ -28,4 +28,13 @@ JSON_JSONLINT_ARGUMENTS:
   - "--no-duplicate-keys"
   - "--trailing-newline"
   - "--comments"
-FLAVOR_SUGGESTIONS: true
+SPELL_CSPELL_FILTER_REGEX_EXCLUDE: (\.gitignore|\.gitattributes|\.cspell\.json)
+GO_REVIVE_PRE_COMMANDS:
+  - "cd"
+  - "./test/"
+GO_GOLANGCI_LINT_PRE_COMMANDS:
+  - "cd"
+  - "./test/"
+TERRAFORM_TFLINT_PRE_COMMANDS:
+  - "tflint"
+  - "--init"

@@ -33,7 +33,7 @@
       }
     }
   },
-  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && wget https://bootstrap.pypa.io/get-pip.py && chmod +x ./get-pip.py && python3 ./get-pip.py && rm -f ./get-pip.py && pip install --user -U pre-commit && pre-commit install && terraform -install-autocomplete",
+  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && wget https://bootstrap.pypa.io/get-pip.py && chmod +x ./get-pip.py && python3 ./get-pip.py && rm -f ./get-pip.py && pip install --user -U pre-commit && pre-commit install && terraform -install-autocomplete"
   // "remoteUser": "vscode",
   // "mounts": [
   //   "type=bind,source=/home/${localEnv:USER}/.ssh,target=/root/.ssh,readonly"
