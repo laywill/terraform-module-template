@@ -30,11 +30,11 @@ JSON_JSONLINT_ARGUMENTS:
   - "--comments"
 SPELL_CSPELL_FILTER_REGEX_EXCLUDE: (\.gitignore|\.gitattributes|\.cspell\.json)
 GO_REVIVE_PRE_COMMANDS:
-  - "cd"
-  - "./test/"
+  - command: cd ./test/
+    cwd: root   # Will be run at the root of MegaLinter docker image
 GO_GOLANGCI_LINT_PRE_COMMANDS:
-  - "cd"
-  - "./test/"
+  - command: cd ./test/
+    cwd: root   # Will be run at the root of MegaLinter docker image
 TERRAFORM_TFLINT_PRE_COMMANDS:
-  - "tflint"
-  - "--init"
+  - command: tflint --init
+    cwd: root   # Will be run at the root of MegaLinter docker image
