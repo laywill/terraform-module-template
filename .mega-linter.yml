@@ -1,0 +1,48 @@
+# Configuration file for MegaLinter
+# See all available variables at https://megalinter.io/configuration/ and in linters documentation
+
+APPLY_FIXES: all
+DISABLE_LINTERS:
+  - JAVASCRIPT_PRETTIER
+  - JSON_PRETTIER
+  - TYPESCRIPT_PRETTIER
+  - YAML_PRETTIER
+  - TERRAFORM_TERRASCAN
+  - GO_GOLANGCI_LINT  # Cannot figure out directory doesn't contain module error
+  - GO_REVIVE         # Cannot understand error, Google has no useful results.
+DISABLE_ERRORS_LINTERS:
+  - SPELL_LYCHEE
+  - SPELL_CSPELL
+  - REPOSITORY_TRIVY
+PRINT_ALL_FILES: false
+# FILTER_REGEX_EXCLUDE: '(\.automation/generated|\.venv)'
+MARKDOWN_MARKDOWN_LINK_CHECK_DISABLE_ERRORS: true
+# REPOSITORY_TRIVY_ARGUMENTS:
+#   - "--skip-dirs"
+#   - ".devcontainer"
+#   - "--skip-dirs"
+#   - ".github"
+#   - "--skip-dirs"
+#   - ".terraform"
+REPOSITORY_KICS_ARGUMENTS:
+  - "--fail-on"
+  - "high,medium"
+JSON_JSONLINT_ARGUMENTS:
+  - "--no-duplicate-keys"
+  - "--trailing-newline"
+  - "--comments"
+SPELL_CSPELL_FILTER_REGEX_EXCLUDE: (\.gitignore|\.gitattributes|\.cspell\.json)
+GO_REVIVE_PRE_COMMANDS:
+  - command: cd ./test/
+    cwd: root   # Will be run at the root of MegaLinter docker image
+GO_GOLANGCI_LINT_PRE_COMMANDS:
+  - command: cd ./test/
+    cwd: root   # Will be run at the root of MegaLinter docker image
+TERRAFORM_TFLINT_PRE_COMMANDS:
+  - command: tflint --init
+    cwd: root   # Will be run at the root of MegaLinter docker image
+TERRAFORM_TFLINT_UNSECURED_ENV_VARIABLES:
+  - GITHUB_TOKEN
+TERRAFORM_TFLINT_ARGUMENTS:
+  - "--ignore-module"
+  - "examples"
