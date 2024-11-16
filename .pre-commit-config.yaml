@@ -11,7 +11,7 @@ repos:
       - id: check-shebang-scripts-are-executable
       # pretty-format-json can't cope with JSON with comments
       # - id: pretty-format-json
-        # args: ["--autofix"]
+      #   args: ["--autofix"]
       - id: check-merge-conflict
       - id: check-symlinks
       - id: check-yaml
@@ -28,13 +28,13 @@ repos:
 
 # CI to run pre-commit and maintain the repo
 ci:
-    autofix_commit_msg: |
-        [pre-commit.ci] auto fixes from pre-commit.com hooks
+  autofix_commit_msg: |
+      [pre-commit.ci] auto fixes from pre-commit.com hooks
 
-        for more information, see https://pre-commit.ci
-    autofix_prs: true
-    autoupdate_branch: ''
-    autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
-    autoupdate_schedule: weekly
-    skip: []
-    submodules: false
+      for more information, see https://pre-commit.ci
+  autofix_prs: true
+  autoupdate_branch: ''
+  autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
+  autoupdate_schedule: weekly
+  skip: []
+  submodules: false

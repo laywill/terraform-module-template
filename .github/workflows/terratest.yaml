@@ -15,7 +15,7 @@ on: # yamllint disable-line rule:truthy - false positive
       - main
       - master
     # Uncomment this line to trigger action only on certain Pull Request events
-    # types: [opened, synchronize, reopened, closed]
+    types: [opened, synchronize, reopened, closed]
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}

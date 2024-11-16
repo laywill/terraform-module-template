@@ -18,7 +18,9 @@
   "words": [
     "devcontainer",
     "devcontainers",
+    "KICS",
     "refs",
+    "tflint",
     "vars"
   ]
 }

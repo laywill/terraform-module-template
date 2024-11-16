@@ -7,6 +7,9 @@ terraform {
   # required_providers with source URLs
   required_version = ">= 0.14.0"
   required_providers {
-
+    local = {
+      source  = "hashicorp/local"
+      version = ">=1.4.0"
+    }
   }
 }
