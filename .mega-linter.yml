@@ -43,3 +43,6 @@ TERRAFORM_TFLINT_PRE_COMMANDS:
     cwd: root   # Will be run at the root of MegaLinter docker image
 TERRAFORM_TFLINT_UNSECURED_ENV_VARIABLES:
   - GITHUB_TOKEN
+TERRAFORM_TFLINT_ARGUMENTS:
+  - "--ignore-module"
+  - "examples"
