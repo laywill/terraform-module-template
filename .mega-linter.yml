@@ -12,7 +12,7 @@ DISABLE_ERRORS_LINTERS:
   - SPELL_LYCHEE
   - SPELL_CSPELL
 PRINT_ALL_FILES: false
-# FILTER_REGEX_EXCLUDE: '(\.cspell\.json|\.automation/generated|\.venv|\.github/workflows|docs/javascripts|docs/overrides|docs/json-schemas|flavors|clj-kondo|TEMPLATES)'
+# FILTER_REGEX_EXCLUDE: '(\.automation/generated|\.venv)'
 MARKDOWN_MARKDOWN_LINK_CHECK_DISABLE_ERRORS: true
 # REPOSITORY_TRIVY_ARGUMENTS:
 #   - "--skip-dirs"
